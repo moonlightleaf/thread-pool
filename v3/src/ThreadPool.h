@@ -21,7 +21,7 @@
 class ThreadPool{
 public:
     using Task = std::function<void()>;
-    explicit ThreadPool(std::size_t, std::size_t);
+    explicit ThreadPool(std::size_t = 4, std::size_t = 8);
     ~ThreadPool();
     template<typename F, typename... Args>
     auto enqueue(F&&, Args&& ...) -> std::future<typename std::result_of<F(Args...)>::type>;
